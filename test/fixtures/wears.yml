@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 
+  garment_id: 
+  user_id: 1
+
+two:
+  date: 
+  garment_id: 
+  user_id: 1

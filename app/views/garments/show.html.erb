@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @garment.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @garment.type %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%= @garment.label_id %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @garment.color_id %>
+</p>
+
+<p>
+  <b>Print:</b>
+  <%= @garment.print_id %>
+</p>
+
+<p>
+  <b>Season:</b>
+  <%= @garment.season %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @garment.year %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @garment.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_garment_path(@garment) %> |
+<%= link_to 'Back', garments_path %>

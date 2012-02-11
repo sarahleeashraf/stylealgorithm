@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type: 
+  label_id: 1
+  color_id: 1
+  print_id: 1
+  season: MyString
+  year: 1
+  description: MyText
+
+two:
+  name: MyString
+  type: 
+  label_id: 1
+  color_id: 1
+  print_id: 1
+  season: MyString
+  year: 1
+  description: MyText

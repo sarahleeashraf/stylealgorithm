@@ -1,0 +1,19 @@
+<% @title = "Log In" %>
+
+<%= form_tag do %>
+  <fieldset>
+    <legend>Please Log In</legend>
+
+    <p>
+      <%= label_tag :email, 'Email:' %>
+      <br /><%= text_field_tag :email, params[:email] %>
+    </p>
+
+    <p>
+      <%= label_tag :apssword, 'Password' %>
+      <br /><%= password_field_tag :password, params[:password] %>
+    </p>
+
+    <p><%= submit_tag 'Log In' %></p>
+  </fieldset>
+<% end %>

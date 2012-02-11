@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @wear.date %>
+</p>
+
+<p>
+  <b>Garment:</b>
+  <%= @wear.garment_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @wear.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_wear_path(@wear) %> |
+<%= link_to 'Back', wears_path %>

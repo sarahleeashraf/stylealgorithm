@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date_purchased: 2012-02-10 08:27:53
+  price: 
+  store_id: 1
+  online: false
+
+two:
+  date_purchased: 2012-02-10 08:27:53
+  price: 
+  store_id: 1
+  online: false

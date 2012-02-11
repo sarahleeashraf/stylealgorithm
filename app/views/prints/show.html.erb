@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @print.name %>
+</p>
+
+<p>
+  <b>Swatch uid:</b>
+  <%= @print.swatch_uid %>
+</p>
+
+
+<%= link_to 'Edit', edit_print_path(@print) %> |
+<%= link_to 'Back', prints_path %>
