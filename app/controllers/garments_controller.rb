@@ -45,8 +45,8 @@ class GarmentsController < ApplicationController
     @garment = Garment.new(params[:garment])
 
     if current_user
-      purchase = Purchase.new(:user => current_user, :garment => @garment)
-      purchase.save
+      user_garment = UserGarment.new(:user => current_user, :garment => @garment)
+      user_garment.save
       
     end
 

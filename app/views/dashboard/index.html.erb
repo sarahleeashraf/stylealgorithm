@@ -1,14 +1,9 @@
 <% @title = 'Dashboard' %>
 
-<p>Welcome back <%= current_user.email %></p>
+<p>Welcome back <%= current_user.email %>
 
 <ul>
-<% current_user.garments.each do |garment| %>
-<li><%= garment.id %></li>
-<% end %>
-</ul>
+<li>What did you wear today?</li>
+<li>See Past Outfits</li>
+<li><%= link_to 'See Your Closet', '/closet' %>
 
-
-<ul class="nav">
-  <li><%= link_to 'Add a new garment', new_garment_path %>
-</ul>

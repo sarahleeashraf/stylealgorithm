@@ -1,0 +1,3 @@
+class Top < Garment 
+
+end

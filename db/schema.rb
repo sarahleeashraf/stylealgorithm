@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210132702) do
+ActiveRecord::Schema.define(:version => 20120211220549) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(:version => 20120210132702) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "style"
+    t.string   "hem_length"
+    t.string   "sleeve_length"
+    t.string   "style_number"
   end
 
   create_table "labels", :force => true do |t|
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20120210132702) do
     t.integer  "garment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "purchased_at"
+    t.decimal  "price"
   end
 
   create_table "users", :force => true do |t|
@@ -70,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20120210132702) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+  end
+
+  create_table "wears", :force => true do |t|
+    t.datetime "date"
+    t.integer  "garment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

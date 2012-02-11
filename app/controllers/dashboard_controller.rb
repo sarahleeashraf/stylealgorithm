@@ -1,7 +1,12 @@
 class DashboardController < ApplicationController
   def index
-    p current_user
+    
 
+  end
+
+  def closet
+    @dresses = Dress.all
+    @tops = Top.all
 
   end
 

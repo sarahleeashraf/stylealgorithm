@@ -17,6 +17,7 @@ StyleAlgorithm::Application.routes.draw do
   resources :labels
 
   get 'dashboard' => 'dashboard#index' 
+  get 'closet' => 'dashboard#closet'
 
   controller :sessions do
     get 'login' => :new

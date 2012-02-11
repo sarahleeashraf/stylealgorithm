@@ -15,7 +15,8 @@ class Garment < ActiveRecord::Base
   end
 
   belongs_to :label
-  has_many :purchases
   has_many :wears
+  has_many :users, :through => :user_garments
+  has_many :user_garments
   validates_presence_of :label
 end
