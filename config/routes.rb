@@ -16,7 +16,6 @@ StyleAlgorithm::Application.routes.draw do
 
   resources :labels
 
-  get 'dashboard' => 'dashboard#index' 
   get 'closet' => 'dashboard#closet'
 
   controller :sessions do
@@ -25,21 +24,14 @@ StyleAlgorithm::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'enter_outfit'
+      put 'create_wears'
+      get 'show_wears'
+    end
+  end
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
   # Sample resource route with options:
   #   resources :products do
@@ -76,7 +68,7 @@ StyleAlgorithm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'dashboard#index'
 
   # See how all your routes lay out with "rake routes"
 

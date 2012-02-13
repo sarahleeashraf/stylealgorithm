@@ -1,0 +1,19 @@
+<% @title = 'Enter Outfit' %>
+
+
+<%= form_tag({:controller => 'users', :action => 'create_wears'}, :method => "put") do |f| %>
+	<p>
+		<%= label_tag :date %>
+		<%= text_field_tag :date %>
+	</p>
+
+    <% 10.times do %>
+	<p>
+		<%= label_tag 'garment_id' %>
+		<%= select_tag 'garment_id[]', options_for_select((current_user.garments.map{|garment|[garment.type + ': ' + garment.name, garment.id]} << ['','']).reverse)%>
+	</p>
+    <% end %>
+
+	<%= submit_tag 'add outfit' %>
+
+<% end %>

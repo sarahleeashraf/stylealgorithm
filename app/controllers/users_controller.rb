@@ -80,4 +80,37 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def enter_outfit
+    @user = User.find(params[:id])
+  end
+
+  def create_wears
+   date = DateTime.strptime(params[:date], '%m/%d/%Y')
+   garment_ids = params[:garment_id]
+   garment_ids.delete_if{|x| x==''}
+
+   message = "Successfully saved "
+
+   p message
+
+   garment_ids.each do |garment_id|
+     garment = Garment.find(garment_id)
+     if garment
+       wear = Wear.create(:garment => garment, :user => current_user, :date => date) 
+       message << garment.name + ", "
+     else
+
+     end
+
+     p message
+
+   end
+    
+
+   flash[:alert] = message + " on " + date.to_s
+   redirect_to root_url
+
+  
+  end
 end

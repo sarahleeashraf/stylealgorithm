@@ -7,13 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		<h1><%= @title %></h1>
+		<% if flash[:alert] %>
+  			<div class="notice"><p><%= flash[:alert] %></div>
+		<% end %>
 
-<h1><%= @title %></h1>
-<% if flash[:alert] %>
-  <div class="notice"><p><%= flash[:alert] %></div>
-<% end %>
+		<div class="span-20">
 
-<%= yield %>
+			<%= yield %>
+
+		</div>
+		<div class="span-4 last">
+			<ul>
+				<li><%= link_to 'Dashboard', '/' %></li>
+				<li><%= link_to 'Closet', '/closet' %></li>
+				<li><%= link_to 'What did you wear today', enter_outfit_user_path(current_user) %></li>
+			</ul>
+			<p><%= current_user.email %></p>
+		</div>
+
+	</div>
 
 </body>
 </html>

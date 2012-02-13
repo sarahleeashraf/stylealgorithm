@@ -6,3 +6,8 @@
  *= require_self
  *= require_tree . 
 */
+
+body { 
+	font-family: Verdana; 
+	padding-top: 50px;
+}
