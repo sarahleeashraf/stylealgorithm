@@ -19,12 +19,14 @@
 
 		</div>
 		<div class="span-4 last">
+			<% if current_user %>
 			<ul>
 				<li><%= link_to 'Dashboard', '/' %></li>
 				<li><%= link_to 'Closet', '/closet' %></li>
 				<li><%= link_to 'What did you wear today', enter_outfit_user_path(current_user) %></li>
 			</ul>
 			<p><%= current_user.email %></p>
+			<% end %>
 		</div>
 
 	</div>

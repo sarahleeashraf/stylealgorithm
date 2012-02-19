@@ -1,4 +1,6 @@
 class GarmentsController < ApplicationController
+  include GarmentLengths
+
   # GET /garments
   # GET /garments.json
   def index
@@ -25,8 +27,9 @@ class GarmentsController < ApplicationController
   # GET /garments/new.json
   def new
     @garment = Garment.new
-#    @prints = Prints.all
-
+    if params[:garment_type]
+      @garment.type = params[:garment_type]
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,11 +46,14 @@ class GarmentsController < ApplicationController
   # POST /garments.json
   def create
     @garment = Garment.new(params[:garment])
+    @garment.label = Label.find(params[:garment][:label_id])
+    @garment.color = Color.find(params[:garment][:color_id])
+    @garment.type = params[:garment][:type] unless !Garment::Types::All.include?(params[:garment][:type])
+
 
     if current_user
       user_garment = UserGarment.new(:user => current_user, :garment => @garment)
       user_garment.save
-      
     end
 
     respond_to do |format|

@@ -8,15 +8,23 @@ class Garment < ActiveRecord::Base
    All = constants.map {|c| const_get(c) }
   end
 
-  module GarmentTypes
-    Dress = 'dress'
-
+  module Types
+    Dress = 'Dress'
+    Top = 'Top'
     All = constants.map { |c| const_get(c) }
   end
 
   belongs_to :label
+  belongs_to :color
   has_many :wears
   has_many :users, :through => :user_garments
   has_many :user_garments
-  validates_presence_of :label
+  validates_presence_of :label, :color
+
+  attr_accessible :label, :color, :print, :season, :year, :description, :style
+
+  def pretty_name  
+    self.name ? self.name : self.color.name.to_s + ' '+ self.label.name.to_s + ' '+ self.type.to_s
+  end
+ 
 end

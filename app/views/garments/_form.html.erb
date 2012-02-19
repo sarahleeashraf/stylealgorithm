@@ -1,4 +1,3 @@
-<% @title = "Add New Garment" %>
 
 <%= form_for(@garment) do |f| %>
   <% if @garment.errors.any? %>
@@ -18,15 +17,20 @@
     <%= f.text_field :name %>
   </div>
 
+  <% if @garment.type == nil %>
+
   <div class="field">
     <%= f.label :type %><br />
     <%= f.text_field :type %>
   </div>
+  <% else %>
+    <%= f.hidden_field :type %>
+  <% end %>
 
 
   <div class="field">
     <%= f.label :label_id %><br />
-    <%= f.select(:label_id, Label.all.collect { |label| [label.name, label.id]}) %>
+    <%= f.select(:label_id, Label.all.sort_by{|l| l.name.downcase}.collect { |label| [label.name, label.id]}) %>
   </div>
   <div class="field">
     <%= f.label :color_id %><br />
@@ -44,6 +48,13 @@
     <%= f.label :year %><br />
     <%= f.number_field :year %>
   </div>
+
+
+  <% if @garment.type == "Dress" %>
+    <%= render :partial => 'dress_fields', :locals => { :f => f} %>
+  <% end %>
+
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>

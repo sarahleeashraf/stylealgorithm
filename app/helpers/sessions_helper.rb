@@ -1,7 +1,6 @@
 module SessionsHelper
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id]
-    puts "I'm signed in! wheee"
     self.current_user = user
   end
 

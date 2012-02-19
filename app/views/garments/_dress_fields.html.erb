@@ -1,0 +1,14 @@
+<div class="field">
+  <%= f.label :style %><br />
+  <%= f.select :style, options_for_select(Dress::Style::All.collect{|x| [x,x]}) %>
+</div>
+
+<div class="field">
+  <%= f.label :hem_length %><br />
+  <%= f.select :hem_length, options_for_select(GarmentLengths::HemLength::All.collect{|x| [x,x]}) %>
+</div>
+
+<div class="field">
+  <%= f.label :sleeve_length %><br /b>
+  <%= f.select :sleeve_length, options_for_select(GarmentLengths::SleeveLength::All.collect{|x| [x,x]}) %>
+</div>

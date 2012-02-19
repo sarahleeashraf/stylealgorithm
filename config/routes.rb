@@ -1,19 +1,13 @@
 StyleAlgorithm::Application.routes.draw do
+
   resources :wears
-
   resources :purchases
-
   resources :stores
-
   resources :user_garments
-
   resources :garments
   resources :dresses
-
   resources :colors
-
   resources :prints
-
   resources :labels
 
   get 'closet' => 'dashboard#closet'

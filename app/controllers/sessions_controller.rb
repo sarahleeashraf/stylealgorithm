@@ -1,15 +1,13 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  skip_before_filter :authorize
 
   def create
     user = User.find_by_email(params[:email])
-    puts "hello world!"
 
     if user and user.authenticate(params[:password])
       sign_in user
-      p current_user
-      redirect_to dashboard_url
+	  p root_url
+      redirect_to root_url
     else
       redirect_to login_url, alert: "We do not have a record of that email or password"
     end
