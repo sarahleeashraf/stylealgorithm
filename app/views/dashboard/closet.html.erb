@@ -5,17 +5,15 @@
 
 <% if @dresses.count != 0 %>
 <h2>Dresses</h2>
-<%= render :partial => 'dashboard/garment_list', :locals => {:garments => @dresses} %>
+<%= render :partial => 'dashboard/garment_list', :locals => {:user_garments => @dresses} %>
 
 <% end %>
 
 <% if @tops.count != 0 %>
 <h2>Tops</h2>
 
-<%= render :partial => 'dashboard/garment_list', :locals => { :garments => @tops} %>
+<%= render :partial => 'dashboard/garment_list', :locals => { :user_garments => @tops} %>
 
 <% end %>
 
-<ul class="nav">
-  <li><%= link_to 'Add a new garment', new_garment_path %>
-</ul>
+<%= render 'new_garment_form' %>

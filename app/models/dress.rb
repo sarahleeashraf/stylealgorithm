@@ -6,6 +6,6 @@ class Dress < Garment
 
     All = constants.map {|c| const_get(c) }
   end
-  attr_accessible :hem_length, :sleeve_length  
+  attr_accessible :hem_length, :sleeve_length, :neckline  
 
 end

@@ -1,0 +1,25 @@
+<h1>Listing fabrics</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fabrics.each do |fabric| %>
+  <tr>
+    <td><%= fabric.name %></td>
+    <td><%= fabric.description %></td>
+    <td><%= link_to 'Show', fabric %></td>
+    <td><%= link_to 'Edit', edit_fabric_path(fabric) %></td>
+    <td><%= link_to 'Destroy', fabric, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fabric', new_fabric_path %>

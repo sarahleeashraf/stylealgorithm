@@ -1,0 +1,5 @@
+<form action="<%= new_garment_path %>" method="get">
+  <%= select_tag 'garment_type', options_for_select(Garment::Types::All) %>
+  <%= submit_tag 'add garment' %>
+
+</form>

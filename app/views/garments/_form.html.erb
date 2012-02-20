@@ -30,15 +30,19 @@
 
   <div class="field">
     <%= f.label :label_id %><br />
-    <%= f.select(:label_id, Label.all.sort_by{|l| l.name.downcase}.collect { |label| [label.name, label.id]}) %>
+    <%= f.select(:label_id, Label.select_options ) %>
   </div>
   <div class="field">
     <%= f.label :color_id %><br />
-    <%= f.select(:color_id, Color.all.collect { |color| [color.name, color.id]})%>
+    <%= f.select(:color_id, Color.select_options )%>
   </div>
   <div class="field">
     <%= f.label :print_id %><br />
-    <%= f.select(:print_id, Print.all.collect { |print| [print.name, print.id]}) %>
+    <%= f.select(:print_id, Print.select_options) %>
+  </div>
+  <div class="field">
+	<%= f.label :fabric_id %><br />
+	<%= f.select(:fabric_id, Fabric.select_options) %>
   </div>
   <div class="field">
     <%= f.label :season %><br />
@@ -54,6 +58,9 @@
     <%= render :partial => 'dress_fields', :locals => { :f => f} %>
   <% end %>
 
+  <% if @garment.type == "Top" %>
+    <%= render :partial => 'top_fields', :locals => { :f => f} %>
+  <% end %>
 
   <div class="field">
     <%= f.label :description %><br />

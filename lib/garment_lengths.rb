@@ -45,8 +45,10 @@ module GarmentLengths
     Scoop = "scoop"
     Crew = "crew"
     VNeck = "v-neck"
+    DeepV = "deep-v"
     Boat = "boat"
     Collared = "collar"
+
     All = constants.map {|c| const_get(c) }
   end
 

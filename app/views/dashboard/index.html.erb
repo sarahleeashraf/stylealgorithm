@@ -8,10 +8,4 @@
 <li><%= link_to 'See Your Closet', '/closet' %></li>
 </ul>
 
-<form action="<%= new_garment_path %>" method="get">
-  <%= select_tag 'garment_type', options_for_select(Garment::GarmentTypes::All) %>
-  <%= submit_tag 'add garment' %>
-
-</form>
-
-
+<%= render 'new_garment_form' %>

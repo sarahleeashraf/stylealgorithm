@@ -1,4 +1,5 @@
 class Garment < ActiveRecord::Base
+
   module Season
    FallWinter = 'fall_winter'
    SpringSummer = 'spring_summer'
@@ -16,15 +17,23 @@ class Garment < ActiveRecord::Base
 
   belongs_to :label
   belongs_to :color
+  belongs_to :fabric
+  belongs_to :user
   has_many :wears
-  has_many :users, :through => :user_garments
-  has_many :user_garments
   validates_presence_of :label, :color
 
   attr_accessible :label, :color, :print, :season, :year, :description, :style
 
   def pretty_name  
-    self.name ? self.name : self.color.name.to_s + ' '+ self.label.name.to_s + ' '+ self.type.to_s
+    "#{self.name.to_s} #{self.color.name.to_s} #{self.label.name.to_s} #{self.type.to_s}"
   end
- 
+
+  def self.inherited(child)
+    child.instance_eval do
+      def model_name
+        Garment.model_name
+      end
+    end
+    super
+  end 
 end

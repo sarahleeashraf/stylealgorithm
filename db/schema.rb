@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211220549) do
+ActiveRecord::Schema.define(:version => 20120220234554) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120211220549) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "color_uid"
+  end
+
+  create_table "fabrics", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "garments", :force => true do |t|
@@ -36,6 +43,9 @@ ActiveRecord::Schema.define(:version => 20120211220549) do
     t.string   "hem_length"
     t.string   "sleeve_length"
     t.string   "style_number"
+    t.string   "neckline"
+    t.integer  "fabric_id"
+    t.string   "user_id"
   end
 
   create_table "labels", :force => true do |t|
@@ -59,15 +69,6 @@ ActiveRecord::Schema.define(:version => 20120211220549) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "user_garments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "garment_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "purchased_at"
-    t.decimal  "price"
   end
 
   create_table "users", :force => true do |t|

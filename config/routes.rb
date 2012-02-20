@@ -1,5 +1,7 @@
 StyleAlgorithm::Application.routes.draw do
 
+  resources :fabrics
+
   resources :wears
   resources :purchases
   resources :stores

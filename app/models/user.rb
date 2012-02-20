@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
 
   has_many :user_garments, :dependent => :destroy
-  has_many :garments, :through => :user_garments
+  has_many :garments 
   has_many :wears, :dependent => :destroy
 
 end

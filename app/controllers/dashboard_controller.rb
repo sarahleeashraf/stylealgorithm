@@ -5,9 +5,8 @@ class DashboardController < ApplicationController
   end
 
   def closet
-    @dresses = Dress.all
-    @tops = Top.all
-
+    @dresses = current_user.user_garments.my_garments('Dress')
+    @tops = current_user.user_garments.my_garments('Top') 
   end
 
 end
