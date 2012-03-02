@@ -13,12 +13,12 @@
   			<div class="notice"><p><%= flash[:alert] %></div>
 		<% end %>
 
-		<div class="span-20">
+		<div class="span-18 append-1">
 
 			<%= yield %>
 
 		</div>
-		<div class="span-4 last">
+		<div class="span-5 last">
 			<% if current_user %>
 			<ul>
 				<li><%= link_to 'Dashboard', '/' %></li>

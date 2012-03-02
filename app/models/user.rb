@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
-  has_many :user_garments, :dependent => :destroy
   has_many :garments 
+  has_many :jewelries
   has_many :wears, :dependent => :destroy
 
 end

@@ -1,4 +1,5 @@
 require 'test_helper'
+include SessionsHelper
 
 class SessionsControllerTest < ActionController::TestCase
   test "should get new" do
@@ -9,8 +10,8 @@ class SessionsControllerTest < ActionController::TestCase
   test "should login" do
     dave = users(:one)
     post :create, email: dave.email, password: 'secret'
-    assert_redirected_to dashboard_url
-    assert_equal dave.id, session[:user_id]
+    assert_redirected_to root_url
+    assert_equal dave, @controller.current_user 
 
   end
 

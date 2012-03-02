@@ -1,0 +1,53 @@
+<%= form_for(@jewelry) do |f| %>
+  <% if @jewelry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jewelry.errors.count, "error") %> prohibited this jewelry from being saved:</h2>
+
+      <ul>
+      <% @jewelry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <% if @jewelry.type == nil %>
+
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <% else %>
+
+    <%= f.hidden_field :type %>
+
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :label_id %><br />
+    <%= f.select :label_id, Label.select_options %>
+  </div>
+  <div class="field">
+    <%= f.label :material_id %><br />
+    <%= f.select :material_id, Material.select_options %>
+  </div>
+
+  <div class="field">
+    <%= f.label :style %><br />
+    <%= f.select :style, @jewelry.class::Style::All %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color_id %><br />
+    <%= f.select :color_id, Color.select_options %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

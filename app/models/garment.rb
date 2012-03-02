@@ -12,20 +12,26 @@ class Garment < ActiveRecord::Base
   module Types
     Dress = 'Dress'
     Top = 'Top'
+    Tee = 'Tee'
     All = constants.map { |c| const_get(c) }
+  end
+
+  module Style
+    All = []
   end
 
   belongs_to :label
   belongs_to :color
   belongs_to :fabric
+  belongs_to :print
   belongs_to :user
   has_many :wears
-  validates_presence_of :label, :color
+  validates_presence_of :label, :color, :user
 
-  attr_accessible :label, :color, :print, :season, :year, :description, :style
+  attr_accessible :name, :label, :color, :print, :season, :year, :description, :style
 
-  def pretty_name  
-    "#{self.name.to_s} #{self.color.name.to_s} #{self.label.name.to_s} #{self.type.to_s}"
+  def pretty_name 
+    (self.name ? self.name.to_s : '') + ' ' + (self.color ? color.name.to_s : '') + ' ' + (self.label ? self.label.name.to_s : '') + ' ' + (self.type ? self.type.to_s: '')
   end
 
   def self.inherited(child)

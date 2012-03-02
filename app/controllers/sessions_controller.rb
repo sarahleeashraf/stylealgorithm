@@ -3,10 +3,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
-
     if user and user.authenticate(params[:password])
       sign_in user
-	  p root_url
       redirect_to root_url
     else
       redirect_to login_url, alert: "We do not have a record of that email or password"
@@ -14,9 +12,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
     redirect_to login_url
-    sign_out current_user
+    sign_out
   end
 
 end

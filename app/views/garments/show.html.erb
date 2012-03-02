@@ -1,45 +1,72 @@
+
+<% @title = @garment.pretty_name %>
+
 <p id="notice"><%= notice %></p>
 
+<% if @garment.name %>
 <p>
   <b>Name:</b>
   <%= @garment.name %>
 </p>
+
+<% end %>
 
 <p>
   <b>Type:</b>
   <%= @garment.type %>
 </p>
 
+<% if @garment.label %>
 <p>
   <b>Label:</b>
   <%= @garment.label.name %>
 </p>
 
+<% end %>
+
+<% if @garment.color %>
 <p>
   <b>Color:</b>
-  <%= @garment.color_id %>
+  <%= @garment.color.name %>
 </p>
+
+<% end %>
+
+<% if @garment.print %>
 
 <p>
   <b>Print:</b>
   <%= @garment.print_id %>
 </p>
 
+<% end %>
+
+
+<% if @garment.season %>
 <p>
   <b>Season:</b>
   <%= @garment.season %>
 </p>
+
+<% end %>
+
+<% if @garment.year %>
 
 <p>
   <b>Year:</b>
   <%= @garment.year %>
 </p>
 
+<% end %>
+
+<% if @garment.description %>
+
 <p>
   <b>Description:</b>
   <%= @garment.description %>
 </p>
 
+<% end %>
 
 <%= link_to 'Edit', edit_garment_path(@garment) %> |
-<%= link_to 'Back', garments_path %>
+<%= link_to 'Back', closet_path %>

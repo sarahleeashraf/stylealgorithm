@@ -1,11 +1,12 @@
 StyleAlgorithm::Application.routes.draw do
 
+  resources :jewelries
+
+  resources :materials
+
   resources :fabrics
 
-  resources :wears
-  resources :purchases
   resources :stores
-  resources :user_garments
   resources :garments
   resources :dresses
   resources :colors
@@ -17,7 +18,7 @@ StyleAlgorithm::Application.routes.draw do
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
-    delete 'logout' => :destroy
+    get 'logout' => :destroy
   end
 
   resources :users do

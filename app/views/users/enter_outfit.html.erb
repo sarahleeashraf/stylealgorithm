@@ -10,8 +10,15 @@
     <% 10.times do %>
 	<p>
 		<%= label_tag 'garment_id' %>
-		<%= select_tag 'garment_id[]', options_for_select((current_user.garments.map{|garment|[garment.type + ': ' + garment.name, garment.id]} << ['','']).reverse)%>
+		<%= select_tag 'garment_id[]', options_for_select((current_user.garments.map{|garment|[garment.pretty_name, garment.id]} << ['','']).reverse)%>
 	</p>
+    <% end %>
+
+    <% 3.times do %>
+    <p>
+		<%= label_tag 'jewelry_id' %>
+        <%= select_tag 'jewelry_id[]', options_for_select((current_user.jewelries.map{|jewelry|[jewelry.pretty_name, jewelry.id]} << ['','']).reverse) %>
+    </p>
     <% end %>
 
 	<%= submit_tag 'add outfit' %>

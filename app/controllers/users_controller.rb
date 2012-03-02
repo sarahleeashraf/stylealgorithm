@@ -88,29 +88,14 @@ class UsersController < ApplicationController
   def create_wears
    date = DateTime.strptime(params[:date], '%m/%d/%Y')
    garment_ids = params[:garment_id]
-   garment_ids.delete_if{|x| x==''}
 
    message = "Successfully saved "
 
-   p message
-
-   garment_ids.each do |garment_id|
-     garment = Garment.find(garment_id)
-     if garment
-       wear = Wear.create(:garment => garment, :user => current_user, :date => date) 
-       message << garment.name + ", "
-     else
-
-     end
-
-     p message
-
-   end
-    
+   message += Wear.create_wears(current_user, params[:garment_id], Garment, date) unless params[:garment_id] == nil
+   message += Wear.create_wears(current_user, params[:jewelry_id], Jewelry, date) unless params[:jewelry_id] == nil
 
    flash[:alert] = message + " on " + date.to_s
-   redirect_to root_url
-
-  
+   redirect_to root_url  
   end
+
 end

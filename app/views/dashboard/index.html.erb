@@ -8,4 +8,12 @@
 <li><%= link_to 'See Your Closet', '/closet' %></li>
 </ul>
 
-<%= render 'new_garment_form' %>
+
+<div class="box">
+<%= render :partial => 'new_garment_form' %>
+</div>
+
+<div class="box">
+
+<%= render :partial => 'new_jewelry_form', :locals => { :jewelry => @jewelry}  %>
+</div>

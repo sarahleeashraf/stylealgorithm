@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  website: MyString
+  name: Alexander Wang 
+  website: www.alexanderwang.com
   description: MyText
 
 two:
-  name: MyString
-  website: MyString
+  name: JCrew
+  website: www.jcrew.com
   description: MyText

@@ -40,6 +40,7 @@ class LabelsController < ApplicationController
   # POST /labels
   # POST /labels.json
   def create
+
     @label = Label.new(params[:label])
 
     respond_to do |format|

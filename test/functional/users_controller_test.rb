@@ -53,4 +53,24 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+
+  test "should add garment to wear" do
+    assert_difference('@controller.current_user.wears.count', 1) do
+      put :create_wears, :id => @user.to_param, :garment_id => [garments(:one)['id']], :date => '02/28/1987'
+    end
+  end
+
+  test "should add jewelry to wear" do
+    assert_difference('@controller.current_user.wears.count', 1) do
+      put :create_wears, :id => @user.to_param, :jewelry_id => [jewelries(:one)['id']], :date => '02/28/1987'
+    end
+  end
+
+  test "should be able to wear many types of things at once" do
+     assert_difference('@controller.current_user.wears.count', 2) do
+      put :create_wears, :id => @user.to_param,:garment_id =>[garments(:one)['id']], :jewelry_id => [jewelries(:one)['id']], :date => '02/28/1987'
+    end
+  
+
+  end
 end

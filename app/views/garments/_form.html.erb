@@ -27,7 +27,6 @@
     <%= f.hidden_field :type %>
   <% end %>
 
-
   <div class="field">
     <%= f.label :label_id %><br />
     <%= f.select(:label_id, Label.select_options ) %>
@@ -60,6 +59,14 @@
 
   <% if @garment.type == "Top" %>
     <%= render :partial => 'top_fields', :locals => { :f => f} %>
+  <% end %>
+
+  <% if @garment.type == "Tee" %>
+    <%= render :partial => 'tee_fields', :locals => { :f => f} %>
+  <% end %>
+
+  <% if @garment.type == "Jewelry" %>
+    <%= render :partial => 'jewelry_fields', :locals => { :f => f} %>
   <% end %>
 
   <div class="field">

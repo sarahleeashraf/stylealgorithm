@@ -52,8 +52,7 @@ class GarmentsController < ApplicationController
 
 
     if current_user
-      user_garment = UserGarment.new(:user => current_user, :garment => @garment)
-      user_garment.save
+      @garment.user = current_user
     end
 
     respond_to do |format|
@@ -72,11 +71,13 @@ class GarmentsController < ApplicationController
   def update
     @garment = Garment.find(params[:id])
 
+
     respond_to do |format|
       if @garment.update_attributes(params[:garment])
         format.html { redirect_to @garment, notice: 'Garment was successfully updated.' }
         format.json { head :ok }
       else
+        p @garment.errors
         format.html { render action: "edit" }
         format.json { render json: @garment.errors, status: :unprocessable_entity }
       end

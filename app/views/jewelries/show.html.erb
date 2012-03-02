@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @jewelry.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @jewelry.type %>
+</p>
+
+<% if @jewelry.label %>
+
+<p>
+  <b>Label:</b>
+  <%= @jewelry.label.name %>
+</p>
+
+<% end %>
+
+<% if @jewelry.material %>
+
+<p>
+  <b>Material:</b>
+  <%= @jewelry.material.name %>
+</p>
+
+<% end %>
+
+<p>
+  <b>Style:</b>
+  <%= @jewelry.style %>
+</p>
+
+<% if @jewelry.color %>
+<p>
+  <b>Color:</b>
+  <%= @jewelry.color %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_jewelry_path(@jewelry) %> |
+<%= link_to 'Back', jewelries_path %>

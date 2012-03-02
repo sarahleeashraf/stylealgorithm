@@ -3,19 +3,21 @@
 one:
   name: MyString
   type: 
-  label_id: 1
-  color_id: 1
-  print_id: 1
+  label: one
+  color: one
+  print: one
   season: MyString
+  user: one
   year: 1
   description: MyText
 
 two:
-  name: MyString
+  name: MyString2
   type: 
-  label_id: 1
-  color_id: 1
-  print_id: 1
+  label: one
+  color: one
+  print: one
   season: MyString
+  user: one
   year: 1
   description: MyText

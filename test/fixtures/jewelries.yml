@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type: Necklace 
+  label: one
+  material: one
+  style: MyString
+  color: one
+  user: one
+
+two:
+  name: MyString
+  type: Bracelet 
+  label: one
+  material: one
+  style: MyString
+  color: one
+  user: one

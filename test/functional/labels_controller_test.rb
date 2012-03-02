@@ -3,6 +3,7 @@ require 'test_helper'
 class LabelsControllerTest < ActionController::TestCase
   setup do
     @label = labels(:one)
+    @label2 = labels(:two)
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class LabelsControllerTest < ActionController::TestCase
 
   test "should create label" do
     assert_difference('Label.count') do
-      post :create, label: @label.attributes
+      post :create, label: {:name => 'Jil Sander'} 
     end
 
     assert_redirected_to label_path(assigns(:label))

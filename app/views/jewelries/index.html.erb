@@ -1,0 +1,33 @@
+<h1>Listing jewelries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Label</th>
+    <th>Material</th>
+    <th>Style</th>
+    <th>Color</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jewelries.each do |jewelry| %>
+  <tr>
+    <td><%= jewelry.name %></td>
+    <td><%= jewelry.type %></td>
+    <td><%= jewelry.label_id %></td>
+    <td><%= jewelry.material_id %></td>
+    <td><%= jewelry.style %></td>
+    <td><%= jewelry.color_id %></td>
+    <td><%= link_to 'Show', jewelry %></td>
+    <td><%= link_to 'Edit', edit_jewelry_path(jewelry) %></td>
+    <td><%= link_to 'Destroy', jewelry, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jewelry', new_jewelry_path %>

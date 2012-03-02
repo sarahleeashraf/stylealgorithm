@@ -1,7 +1,7 @@
 <ul>
 
-<% user_garments.each do |user_garment| %>
-<li><%= link_to user_garment.garment.pretty_name %></li>
+<% garments.each do |garment| %>
+<li><%= link_to garment.pretty_name, garment_path(garment) %></li>
 <% end %>
 
 </ul>

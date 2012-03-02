@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  hexcode: MyString
+  name: Black 
+  hexcode: 000000
 
 two:
-  name: MyString
-  hexcode: MyString
+  name: White
+  hexcode: FFFFFF
